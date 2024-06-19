@@ -71,14 +71,11 @@ except: pass
 
 divs = driver.find_elements(By.CLASS_NAME, 'components-home-assets-__sign-content-test_---sign-item---3gtMqV') # get all daily claim elements
 
-active_day_found = False
 for div in divs:
     try:
         active_day = div.find_element(By.CLASS_NAME, 'components-home-assets-__sign-content-test_---actived-day---34r3rb') # "--actived-day" is the flag we are looking for
         if active_day:
-            active_day_found = True
             div.click()
-            print('Daily Claimed!')
             time.sleep(3) #? value might need to change(?)
             break
     except: continue
