@@ -12,3 +12,5 @@ Contributions are appreciated :)
 4) Compile into an executable (recommended) or leave it as is.
 - recommended command: *`pyinstaller autoclaim.py --onefile --icon NONE --noconsole`*
 5) Open your **Task Scheduler** and setup the script to autorun under your prefered parameters.
+
+*Note: With some modification (or none) the script could also be run on a server that you know will be online 24/7 ensuring that you won't miss a day.*
