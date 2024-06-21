@@ -1,3 +1,4 @@
+import platform
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -45,11 +46,16 @@ hoyo_cookies = [
     }
 ]
 
+platform = str(platform.release())
+
 driver_options = Options()
 driver_options.add_argument("--headless") # giving a bunch of warnings (hoyo might be blocking headless?) | nevermind, using a useragent bypasses that
+driver_options.add_argument(f"--user-agent=Mozilla/5.0 (Windows NT {platform}.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 driver_options.add_argument("--window-size=1920x1080")
-driver_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 driver = webdriver.Chrome(options=driver_options)
+
+#user_agent = driver.execute_script("return navigator.userAgent;")  # may be needed later
+#print(user_agent, "\n\n\n")
 
 driver.get('https://hoyolab.com/')
 time.sleep(5) #? idk if needed but give time for page load
